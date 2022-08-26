@@ -5,7 +5,8 @@ import socket
 def banner(ip, port):
    s = socket.socket()
    s.connect((ip, int(port)))
-   print(s.recv(1024))
+   s.settimeout(5)
+   print(s.recv(1024).decode("utf-8").rstrip())
 
 def main():
     ip = input("Please enter the IP: ")
